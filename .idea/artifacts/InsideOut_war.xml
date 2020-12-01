@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="InsideOut:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>InsideOut</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="InsideOut-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="InsideOut:war exploded" />
+    </root>
+  </artifact>
+</component>
