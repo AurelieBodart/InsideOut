@@ -33,11 +33,7 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.11.2" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.module:jackson-module-parameter-names:2.11.2" />
           <element id="library" level="project" name="Maven: org.springframework:spring-web:5.2.9.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.2.9.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.2.9.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.2.9.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-context:5.2.9.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.2.9.RELEASE" />
           <element id="library" level="project" name="Maven: jakarta.annotation:jakarta.annotation-api:1.3.5" />
           <element id="library" level="project" name="Maven: org.apache.tomcat.embed:tomcat-embed-core:9.0.38" />
           <element id="library" level="project" name="Maven: jakarta.xml.bind:jakarta.xml.bind-api:2.3.3" />
@@ -94,6 +90,16 @@
           <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:1.7.30" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.7.30" />
           <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-security:2.3.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.2.9.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:5.3.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:5.3.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-taglibs:5.3.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-acl:5.3.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:5.3.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.2.9.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:5.2.9.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.2.9.RELEASE" />
         </element>
       </element>
       <element id="directory" name="META-INF">

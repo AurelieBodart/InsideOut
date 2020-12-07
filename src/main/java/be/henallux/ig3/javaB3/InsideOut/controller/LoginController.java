@@ -1,5 +1,6 @@
 package be.henallux.ig3.javaB3.InsideOut.controller;
 
+import be.henallux.ig3.javaB3.InsideOut.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +13,7 @@ public class LoginController {
     @RequestMapping (method = RequestMethod.GET)
     public String home (Model model) {
         model.addAttribute("title", "Login page");
-        //model.addAttribute("user", new User());
+        model.addAttribute("user", new User());
         return "integrated:login";
     }
 

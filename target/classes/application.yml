@@ -5,5 +5,5 @@ server:
 
 spring:
   datasource:
-    password: M254m 98s@LU
+    password: Mysql30201
     url: jdbc:mysql://localhost:3306/inside_out_metal?user=root&serverTimezone=UTC

@@ -1,11 +1,7 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Christophe Bernard
-  Date: 13/10/2020 @ 11:24
---%>
+
 <%@ page pageEncoding="UTF-8" contentType="text/html;charset=UTF-8"%>
 <%@ include file="../include/importTags.jsp"%>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+
 <html>
 <head>
 	<meta charset="utf-8">
@@ -13,6 +9,7 @@
 	<meta http-equiv="cache-control" content="max-age=604800" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- jQuery -->
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<script src="<spring:url value='/vendor/js/jquery-2.0.0.min.js' />" type="text/javascript"></script>
 
 	<!-- Bootstrap4 files-->
@@ -41,6 +38,7 @@
 	</script>
 
 	<title>${title}</title>
+
 	<spring:url var="localeFr" value="">
 		<spring:param name="locale" value="fr" />
 	</spring:url>
@@ -49,13 +47,12 @@
 		<spring:param name="locale" value="en" />
 	</spring:url>
 </head>
+
 <body>
 <header class="section-header">
+
 	<nav class="navbar navbar-dark navbar-expand p-0 bg-primary">
 		<div class="container">
-			<ul class="navbar-nav d-none d-md-flex mr-auto">
-				<li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-			</ul>
 			<ul class="navbar-nav">
 				<li class="nav-item dropdown">
 					<a href="${localeEn}" class="nav-link dropdown-toggle" data-toggle="dropdown"> English </a>
@@ -70,8 +67,9 @@
 	<section class="header-main border-bottom">
 		<div class="container">
 			<div class="row align-items-center">
+
 				<div class="col-lg-2 col-6">
-					<a href="http://localhost:8082/" class="brand-wrap">
+					<a href="<spring:url value='/' />" class="brand-wrap">
 						<img class="logo" src="<spring:url value='/images/logo.png' />">
 					</a> <!-- brand-wrap.// -->
 				</div>
@@ -81,23 +79,36 @@
 
 				<div class="col-lg-4 col-sm-6 col-12">
 					<div class="widgets-wrap float-lg-right">
+
 						<div class="widget-header  mr-3">
 							<a href="#" class="icon icon-sm rounded-circle border">
 								<i class="fa fa-shopping-cart"></i>
 							</a>
 							<span class="badge badge-pill badge-danger notify">0</span>
 						</div>
+
 						<div class="widget-header icontext">
 							<a href="#" class="icon icon-sm rounded-circle border">
 								<i class="fa fa-user"></i>
 							</a>
+
 							<div class="text">
-								<span class="text-muted">Welcome!</span>
 								<div>
-									<a href="#">Sign in</a> |
-									<a href="#"> Register</a>
+									<sec:authorize access="!isAuthenticated()">
+										<a href="<spring:url value="/login"/>">Sign in</a> |
+										<a href="<spring:url value="/register"/>">Register</a>
+									</sec:authorize>
+
+									<sec:authorize access="isAuthenticated()">
+										<span class="text-muted">Welcome
+												${pageContext.request.userPrincipal.principal.firstName}
+												${pageContext.request.userPrincipal.principal.lastName} !
+										</span>
+										<a href="<spring:url value="/logout"/>">Logout</a>
+									</sec:authorize>
 								</div>
 							</div>
+
 						</div>
 					</div> <!-- widgets-wrap.// -->
 				</div> <!-- col.// -->
