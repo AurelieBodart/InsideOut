@@ -1,9 +1,14 @@
 package be.henallux.ig3.javaB3.InsideOut.model;
 
+import net.bytebuddy.implementation.bind.annotation.Empty;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import java.util.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -15,22 +20,47 @@ import java.util.List;
 import static org.springframework.util.StringUtils.isEmpty;
 
 public class User implements UserDetails {
+    @NotEmpty
     private String username;
+
+    @NotEmpty
     private String password;
+
+    @NotEmpty
+    @Email
     private String email;
+
+    @NotEmpty
     private String phoneNumber;
+
+    @NotEmpty
     private String firstName;
+
+    @NotEmpty
     private String lastName;
 
-//    @DateTimeFormat(pattern = "MM/dd/yyyy")
+    @NotEmpty
+    @Past
     private Date birthdate;
 
+    @NotEmpty
     private String gender;
+
     private String VATNumber;
+
+    @NotEmpty
     private String street;
+
+    @NotEmpty
     private String number;
+
+    @NotEmpty
     private String country;
+
+    @NotEmpty
     private String city;
+
+    @NotEmpty
     private String postalCode;
 
     private String authorities;
@@ -174,18 +204,18 @@ public class User implements UserDetails {
     }
 
     public Date getBirthdate() {
-        System.out.println("getBirthdate : " + this.birthdate);
         return this.birthdate;
-        //return new java.sql.Date(birthdate.getTimeInMillis());
     }
 
     public void setBirthdate(String birthdate) throws ParseException {
-        System.out.println("setBirthdate avant : " + birthdate);
-        DateFormat format = new SimpleDateFormat("MM/dd/yyyy");
-        Date date = format.parse(birthdate);
-        System.out.println("setBirthdate après : " + date);
+        if(!birthdate.equals("")) {
+            System.out.println("setBirthdate avant : " + birthdate);
+            DateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+            Date date = format.parse(birthdate);
+            System.out.println("setBirthdate après : " + date);
 
-        this.birthdate = date;
+            this.birthdate = date;
+        }
     }
 
     public String getGender() {
