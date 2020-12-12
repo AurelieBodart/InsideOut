@@ -139,7 +139,7 @@
 
 					<c:forEach items="${categories}" var="category">
 						<li class="nav-item">
-							<a class="nav-link" href="<spring:url value='/products/${category.getId()}' />">${category.getLabel()}</a>
+							<a class="nav-link onMousseHover" href="<spring:url value='/products/${category.getId()}' />">${category.getLabel()}</a>
 						</li>
 					</c:forEach>
 

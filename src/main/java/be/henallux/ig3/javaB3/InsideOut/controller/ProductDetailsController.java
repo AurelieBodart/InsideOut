@@ -22,8 +22,8 @@ public class ProductDetailsController extends SuperController{
         this.productDataAccess = productDataAccess;
     }
 
-    @RequestMapping (value = "/{product}", method = RequestMethod.GET)
-    public String getProduct (@PathVariable("product") Integer productId, Model model) {
+    @RequestMapping (value = "/{productId}", method = RequestMethod.GET)
+    public String getProduct (@PathVariable("productId") Integer productId, Model model) {
 
         model.addAttribute("categories", super.getAllCategories());
         model.addAttribute("product", productDataAccess.getProductById(productId));
