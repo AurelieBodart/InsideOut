@@ -55,6 +55,5 @@ public class RegisterController extends SuperController{
         } else {
             return "integrated:register";
         }
-
     }
 }

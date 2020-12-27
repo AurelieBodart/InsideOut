@@ -107,15 +107,17 @@
 							<div class="text">
 								<div>
 									<sec:authorize access="!isAuthenticated()">
-										<a href="<spring:url value="/login"/>"><spring:message code="signIn"/></a> |
+										<a href="<spring:url value="/goToLogin"/>"><spring:message code="signIn"/></a> |
 										<a href="<spring:url value="/register"/>"><spring:message code="register"/></a>
 									</sec:authorize>
 
 									<sec:authorize access="isAuthenticated()">
-										<span class="text-muted">Welcome
+										<span class="text-muted">
+											<spring:message code="welcome"/>
 												${pageContext.request.userPrincipal.principal.firstName}
 												${pageContext.request.userPrincipal.principal.lastName} !
 										</span>
+										<br/>
 										<a href="<spring:url value="/logout"/>"><spring:message code="buttonLogout"/></a>
 									</sec:authorize>
 								</div>

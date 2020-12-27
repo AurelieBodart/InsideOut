@@ -1,7 +1,6 @@
 package be.henallux.ig3.javaB3.InsideOut.controller;
 
 import be.henallux.ig3.javaB3.InsideOut.dataAccess.dao.CategoryDataAccess;
-import be.henallux.ig3.javaB3.InsideOut.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,11 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping(value="/login")
-public class LoginController extends SuperController {
-
+@RequestMapping(value="/goToLogin")
+public class GoToLoginController extends SuperController {
     @Autowired
-    public LoginController(CategoryDataAccess categoryDataAccess) {
+    public GoToLoginController(CategoryDataAccess categoryDataAccess) {
         super(categoryDataAccess);
     }
 
@@ -21,9 +19,8 @@ public class LoginController extends SuperController {
     public String login (Model model) {
 
         model.addAttribute("categories", super.getAllCategories());
-        model.addAttribute("title", "Login page");
-        model.addAttribute("user", new User());
+        model.addAttribute("title", "Home page");
 
-        return "integrated:login";
+        return "integrated:home";
     }
 }

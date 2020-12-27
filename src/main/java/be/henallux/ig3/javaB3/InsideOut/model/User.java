@@ -1,6 +1,6 @@
 package be.henallux.ig3.javaB3.InsideOut.model;
 
-import net.bytebuddy.implementation.bind.annotation.Empty;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -39,8 +39,9 @@ public class User implements UserDetails {
     @NotEmpty
     private String lastName;
 
-    @NotEmpty
+    @NotNull
     @Past
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthdate;
 
     @NotEmpty
@@ -69,31 +70,32 @@ public class User implements UserDetails {
     private Boolean credentialsNonExpired;
     private Boolean enabled;
 
-    public User(String username, String password, String email, String phoneNumber, String firstName, String lastName,
-                Date birthdate, String gender, String VATNumber,
-                String street, String number, String country, String city, String postalCode,
-                String authorities, Boolean accountNonExpired, Boolean accountNonLocked,
-                Boolean credentialsNonExpired, Boolean enabled) {
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.birthdate = birthdate;
-        this.gender = gender;
-        this.VATNumber = VATNumber;
-        this.street = street;
-        this.number = number;
-        this.country = country;
-        this.city = city;
-        this.postalCode = postalCode;
-        this.authorities = authorities;
-        this.accountNonExpired = accountNonExpired;
-        this.accountNonLocked = accountNonLocked;
-        this.credentialsNonExpired = credentialsNonExpired;
-        this.enabled = enabled;
-    }
+    // TODO utilité de ce contructeur ?
+//    public User(String username, String password, String email, String phoneNumber, String firstName, String lastName,
+//                Date birthdate, String gender, String VATNumber,
+//                String street, String number, String country, String city, String postalCode,
+//                String authorities, Boolean accountNonExpired, Boolean accountNonLocked,
+//                Boolean credentialsNonExpired, Boolean enabled) {
+//        this.username = username;
+//        this.password = password;
+//        this.email = email;
+//        this.phoneNumber = phoneNumber;
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//        this.birthdate = birthdate;
+//        this.gender = gender;
+//        this.VATNumber = VATNumber;
+//        this.street = street;
+//        this.number = number;
+//        this.country = country;
+//        this.city = city;
+//        this.postalCode = postalCode;
+//        this.authorities = authorities;
+//        this.accountNonExpired = accountNonExpired;
+//        this.accountNonLocked = accountNonLocked;
+//        this.credentialsNonExpired = credentialsNonExpired;
+//        this.enabled = enabled;
+//    }
 
     public User() {
     }
@@ -114,6 +116,11 @@ public class User implements UserDetails {
 
         return grantedAuthorities;
     }
+
+    public void setAuthorities(String authorities) {
+        this.authorities = authorities;
+    }
+
     @Override
     public boolean isEnabled() {
         return enabled;
@@ -149,10 +156,6 @@ public class User implements UserDetails {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public void setAuthorities(String authorities) {
-        this.authorities = authorities;
     }
 
     public void setAccountNonExpired(Boolean accountNonExpired) {
@@ -207,15 +210,8 @@ public class User implements UserDetails {
         return this.birthdate;
     }
 
-    public void setBirthdate(String birthdate) throws ParseException {
-        if(!birthdate.equals("")) {
-            System.out.println("setBirthdate avant : " + birthdate);
-            DateFormat format = new SimpleDateFormat("MM/dd/yyyy");
-            Date date = format.parse(birthdate);
-            System.out.println("setBirthdate après : " + date);
-
-            this.birthdate = date;
-        }
+    public void setBirthdate(@DateTimeFormat(pattern = "yyyy-MM-dd") Date birthdate) {
+        this.birthdate = birthdate;
     }
 
     public String getGender() {

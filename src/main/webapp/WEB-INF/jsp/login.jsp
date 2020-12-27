@@ -24,7 +24,7 @@
 
 					<div class="form-group">
 						<form:label path="password"><spring:message code="password"/></form:label>
-						<form:input path="password"/>
+						<form:input path="password" type="password"/>
 					</div>
 
 					<div class="form-group">

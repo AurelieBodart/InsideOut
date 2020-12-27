@@ -65,7 +65,7 @@
                                     <i class="fa fa-calendar">
                                     </i>
                                 </div>
-                                <form:input path="birthdate" data-provide="datepicker" class="form-control" id="date" name="date" placeholder="mm/dd/yyyy" type="text"/>
+                                <form:input path="birthdate" id="date" name="date" placeholder="mm/dd/yyyy" type="date"/>
                                 <form:errors path="birthdate"/>
                             </div>
 
@@ -84,6 +84,7 @@
                                 <spring:message code="phoneNumber"/>
                             </form:label>
                             <form:input path="phoneNumber"/>
+                            <form:errors path="phoneNumber"/>
                         </div> <!-- form-group end.// -->
 
                         <div class="form-group">
@@ -151,7 +152,7 @@
 
             </article><!-- card-body.// -->
         </div> <!-- card .// -->
-        <p class="text-center mt-4"><spring:message code="noAccount"/> <a href="<spring:url value='/login'/>"><spring:message code="login"/></a></p>
+        <p class="text-center mt-4"><spring:message code="alreadyAccount"/> <a href="<spring:url value='/goToLogin'/>"><spring:message code="login"/></a></p>
         <br><br>
         <!-- ============================ COMPONENT REGISTER  END.// ================================= -->
     </section>
