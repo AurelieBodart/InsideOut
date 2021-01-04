@@ -1,5 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- ========================= SECTION PAGETOP ========================= -->
 <section class="section-pagetop bg-primary">
     <div class="container">
@@ -23,13 +23,6 @@
             consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
             cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
             proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-        <a href="javascript: history.back()" class="btn btn-light"> &laquo Go back</a>
 
     </div> <!-- container .//  -->
 </section>
@@ -54,7 +47,6 @@
                     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                     proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-                </article>
             </div> <!-- col.// -->
             <div class="col-md-4">
                 <p>

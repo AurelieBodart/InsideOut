@@ -7,6 +7,8 @@ import be.henallux.ig3.javaB3.InsideOut.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service
 public class UserDAO implements UserDataAccess{
     private UserRepository userRepository;
@@ -23,6 +25,7 @@ public class UserDAO implements UserDataAccess{
         return providerConverter.userEntityToUserModel(userEntity);
     }
 
+    @Transactional
     public User save(User user){
         UserEntity userEntity = providerConverter.userModelToUserEntity(user);
         userEntity = userRepository.save(userEntity);

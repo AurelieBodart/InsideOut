@@ -13,8 +13,8 @@
         <put-attribute name="main-content" value="" />
     </definition>
 
-    <!-- "ajax:" renders the page as-is, without the template -->
-    <definition name="ajax:**" template="/WEB-INF/jsp/ajax/{1}.jsp" />
+    <!-- "static:" renders the page as-is, without the template -->
+    <definition name="static:**" template="/WEB-INF/jsp/{1}.jsp" />
 
     <!-- "tiles:" renders the specified page within the template-main -->
 

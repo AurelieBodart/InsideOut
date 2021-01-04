@@ -3,8 +3,6 @@
          contentType="text/html; charset=UTF-8"%>
 <%@ include file="include/importTags.jsp"%>
 
-<html lang="en">
-
 	<!-- ========================= SECTION CONTENT ========================= -->
 	<section class="section-conten padding-y" style="min-height:84vh">
 
@@ -19,12 +17,12 @@
 
 					<div class="form-group">
 						<form:label path="username"><spring:message code="username"/></form:label>
-						<form:input path="username"/>
+						<form:input cssClass="form-control" path="username" />
 					</div>
 
 					<div class="form-group">
 						<form:label path="password"><spring:message code="password"/></form:label>
-						<form:input path="password" type="password"/>
+						<form:input cssClass="form-control" path="password" type="password"/>
 					</div>
 
 					<div class="form-group">
@@ -41,4 +39,3 @@
 		<!-- ============================ COMPONENT LOGIN  END.// ================================= -->
 	</section>
 <!-- ========================= SECTION CONTENT END// ========================= -->
-</html>

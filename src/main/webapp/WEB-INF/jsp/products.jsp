@@ -3,8 +3,6 @@
          contentType="text/html; charset=UTF-8"%>
 <%@ include file="include/importTags.jsp"%>
 
-<html>
-
 <!-- ========================= SECTION PAGETOP ========================= -->
 <section class="section-pagetop bg">
     <div class="container">
@@ -29,9 +27,7 @@
                 </header><!-- sect-heading -->
 
                 <div class="row">
-
                     <c:forEach items="${products}" var="product">
-
                         <div class="col-md-4">
                             <figure class="card card-product-grid">
                                 <div class="img-wrap">
@@ -45,7 +41,16 @@
                                             <span class="price">${product.getPrice()}€</span>
                                         </div> <!-- price-wrap.// -->
                                     </div>
-                                    <a href="#" class="btn btn-block btn-primary"><spring:message code="addToCart"/></a>
+                                    <form:form id="addToCartForm" method="post" action="/cart/add/${product.getId()}" modelAttribute="orderLine">
+                                        <div class="row">
+                                            <div class="form-group col-md flex-grow-0">
+                                                <form:hidden path="quantity" value="1" />
+                                            </div> <!-- col.// -->
+                                        </div> <!-- row.// -->
+                                        <form:button class="btn btn-block btn-primary" >
+                                            <spring:message code="addToCart"/>
+                                        </form:button>
+                                    </form:form>
                                 </figcaption>
                             </figure>
                         </div> <!-- col.// -->
@@ -58,5 +63,3 @@
     </div> <!-- container .//  -->
 </section>
 <!-- ========================= SECTION CONTENT END// ========================= -->
-
-</html>
