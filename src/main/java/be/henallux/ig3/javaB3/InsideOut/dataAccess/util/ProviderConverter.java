@@ -6,6 +6,9 @@ import org.dozer.DozerBeanMapper;
 import org.dozer.Mapper;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+
 @Component
 public class ProviderConverter {
     private Mapper mapper = new DozerBeanMapper();
@@ -43,4 +46,28 @@ public class ProviderConverter {
         return mapper.map(categoryEntity, Category.class);
     }
 
+    public OrderEntity orderModelToOrderEntity(Order order) {
+        OrderEntity orderEntity = mapper.map(order, OrderEntity.class);
+
+        orderEntity.setOrderLineEntities(order.getOrderLines()
+                .stream()
+                .map(orderLine -> {
+                    OrderLineEntity orderLineEntity = new OrderLineEntity();
+                    ProductEntity productEntity = mapper.map(orderLine.getProduct(), ProductEntity.class);
+
+                    orderLineEntity.setOrderEntity(orderEntity);
+                    orderLineEntity.setProductEntity(productEntity);
+                    orderLineEntity.setPriceShown(productEntity.getPrice());
+                    orderLineEntity.setQuantity(orderLine.getQuantity());
+
+                    return orderLineEntity;
+                })
+                .collect(Collectors.toCollection(ArrayList::new)));
+
+        return orderEntity;
+    }
+
+    public Order orderEntityToOrderModel(OrderEntity orderEntity) {
+        return mapper.map(orderEntity, Order.class);
+    }
 }

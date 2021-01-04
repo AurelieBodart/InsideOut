@@ -1,14 +1,15 @@
 package be.henallux.ig3.javaB3.InsideOut.dataAccess.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 @Entity(name="customer")
 public class UserEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Integer id;
+
     @Column(name = "username")
     private String username;
 
@@ -28,7 +29,7 @@ public class UserEntity {
     private String lastName;
 
     @Column(name = "birthdate")
-    private java.util.Date birthdate;
+    private Date birthdate;
 
     @Column(name = "gender")
     private String gender;
@@ -67,6 +68,14 @@ public class UserEntity {
     private Boolean enabled;
 
     public UserEntity() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -117,10 +126,8 @@ public class UserEntity {
         this.lastName = lastName;
     }
 
-    public GregorianCalendar getBirthdate() {
-        GregorianCalendar calendar = new GregorianCalendar();
-        calendar.setTime(birthdate);
-        return calendar;
+    public Date getBirthDate() {
+        return birthdate;
     }
 
     public void setBirthdate(Date birthdate) {

@@ -20,7 +20,6 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
-          <factory-entry name="InsideOut" />
           <factory-entry name="entityManagerFactory" value="44e05d94-6dff-4a86-94d9-a40fd88a8bc3" />
         </datasource-mapping>
         <naming-strategy-map />
@@ -35,6 +34,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
+      <excludeFolder url="file://$MODULE_DIR$/SQL" />
     </content>
     <orderEntry type="jdk" jdkName="15" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -152,7 +152,9 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.2.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:5.2.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.2.9.RELEASE" level="project" />
-    <orderEntry type="library" name="org.apache.maven.plugins:maven-surefire-plugin:2.22.2" level="project" />
+    <orderEntry type="library" name="bootstrap-iso" level="application" />
+    <orderEntry type="library" name="font-awesome" level="application" />
+    <orderEntry type="library" name="bootstrap-datepicker" level="application" />
     <orderEntry type="library" name="jquery-1.9.1" level="application" />
   </component>
 </module>

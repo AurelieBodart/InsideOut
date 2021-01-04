@@ -2,21 +2,23 @@ package be.henallux.ig3.javaB3.InsideOut.controller;
 
 import be.henallux.ig3.javaB3.InsideOut.dataAccess.dao.CategoryDataAccess;
 import be.henallux.ig3.javaB3.InsideOut.dataAccess.dao.ProductDataAccess;
-import be.henallux.ig3.javaB3.InsideOut.model.Category;
+import be.henallux.ig3.javaB3.InsideOut.model.OrderLine;
 import be.henallux.ig3.javaB3.InsideOut.model.TranslationCategory;
-import be.henallux.ig3.javaB3.InsideOut.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping(value = "/products")
+@SessionAttributes({"cart"})
 public class ProductsController extends SuperController{
     private ProductDataAccess productDataAccess;
 
@@ -42,6 +44,9 @@ public class ProductsController extends SuperController{
         model.addAttribute("categoryChosen", categoryChosen);
         model.addAttribute("products", productDataAccess.getAllProductsByCategory(categoryId));
         model.addAttribute("title", "Products page");
+        model.addAttribute("orderLine", new OrderLine());
+        if (!model.containsAttribute("cart"))
+            model.addAttribute("cart",new HashMap<Integer, OrderLine>());
 
         return "integrated:products";
     }

@@ -1,8 +1,11 @@
 package be.henallux.ig3.javaB3.InsideOut.model;
 
+import javax.validation.constraints.Positive;
+
 public class Product {
     private Integer id;
     private String name;
+    @Positive
     private Double price;
     private String targetedGender;
     private String size;

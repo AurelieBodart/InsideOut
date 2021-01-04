@@ -5,8 +5,6 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta http-equiv="pragma" content="no-cache" />
-	<meta http-equiv="cache-control" content="max-age=604800" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- jQuery -->
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
@@ -66,7 +64,7 @@
 		<div class="container">
 			<ul class="navbar-nav">
 				<li class="nav-item dropdown">
-					<p class="nav-link dropdown-toggle" data-toggle="dropdown"> <spring:message code="langue"/> </p>
+					<p class="nav-link dropdown-toggle" data-toggle="dropdown"> <spring:message code="language"/> </p>
 					<ul class="dropdown-menu dropdown-menu-right" style="max-width: 100px;">
 						<li><a class="dropdown-item" href="${localeFr}"><spring:message code="french"/></a></li>
 						<li><a class="dropdown-item" href="${localeEn}"><spring:message code="english"/></a></li>
@@ -93,15 +91,16 @@
 					<div class="widgets-wrap float-lg-right">
 
 						<div class="widget-header  mr-3">
-							<a href="#" class="icon icon-sm rounded-circle border">
-								<i class="fa fa-shopping-cart"></i>
+							<a href="<spring:url value='/cart' />" class="icon icon-sm rounded-circle border">
+								<i class="fa fa-shopping-cart" style="padding-top: 10px"></i>
 							</a>
-							<span class="badge badge-pill badge-danger notify">0</span>
+							<span class="badge badge-pill badge-danger notify">${cart.values().stream().map(value -> value.getQuantity()).reduce(0, (a, b) -> a + b)}</span>
+							<%--<span class="badge badge-pill badge-danger notify">${!cart.entrySet().isEmpty() ? cart.values().stream().map(value -> value.getQuantity()).reduce(0, (a, b) -> a + b) : 0}</span>--%>
 						</div>
 
 						<div class="widget-header icontext">
 							<a href="#" class="icon icon-sm rounded-circle border">
-								<i class="fa fa-user"></i>
+								<i class="fa fa-user" style="padding-top: 10px"></i>
 							</a>
 
 							<div class="text">
@@ -156,8 +155,8 @@
 
 <footer class="section-footer border-top padding-y">
 	<div class="container">
-		<p>	&copy Copyright 2020 All rights reserved</p>
-		<p>	<a href="#">Terms and conditions</a> </p>
+		<p>	&copy Copyright 2020 Inside Out - All rights reserved</p>
+		<p>	<a href="<spring:url value='/about' />"><spring:message code="aboutUs" /></a> </p>
 	</div><!-- //container -->
 </footer>
 </body>

@@ -1,6 +1,5 @@
 package be.henallux.ig3.javaB3.InsideOut.dataAccess.dao;
 
-import be.henallux.ig3.javaB3.InsideOut.dataAccess.entity.CategoryEntity;
 import be.henallux.ig3.javaB3.InsideOut.dataAccess.entity.ProductEntity;
 import be.henallux.ig3.javaB3.InsideOut.dataAccess.repository.ProductRepository;
 import be.henallux.ig3.javaB3.InsideOut.dataAccess.util.ProviderConverter;

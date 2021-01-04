@@ -9,22 +9,24 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
-import java.util.Date;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import static org.springframework.util.StringUtils.isEmpty;
 
 public class User implements UserDetails {
+    private Integer id;
+
     @NotEmpty
     private String username;
 
     @NotEmpty
     private String password;
+
+    @NotEmpty
+    private String confirmationPassword;
 
     @NotEmpty
     @Email
@@ -69,33 +71,6 @@ public class User implements UserDetails {
     private Boolean accountNonLocked;
     private Boolean credentialsNonExpired;
     private Boolean enabled;
-
-    // TODO utilité de ce contructeur ?
-//    public User(String username, String password, String email, String phoneNumber, String firstName, String lastName,
-//                Date birthdate, String gender, String VATNumber,
-//                String street, String number, String country, String city, String postalCode,
-//                String authorities, Boolean accountNonExpired, Boolean accountNonLocked,
-//                Boolean credentialsNonExpired, Boolean enabled) {
-//        this.username = username;
-//        this.password = password;
-//        this.email = email;
-//        this.phoneNumber = phoneNumber;
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//        this.birthdate = birthdate;
-//        this.gender = gender;
-//        this.VATNumber = VATNumber;
-//        this.street = street;
-//        this.number = number;
-//        this.country = country;
-//        this.city = city;
-//        this.postalCode = postalCode;
-//        this.authorities = authorities;
-//        this.accountNonExpired = accountNonExpired;
-//        this.accountNonLocked = accountNonLocked;
-//        this.credentialsNonExpired = credentialsNonExpired;
-//        this.enabled = enabled;
-//    }
 
     public User() {
     }
@@ -227,7 +202,8 @@ public class User implements UserDetails {
     }
 
     public void setVATNumber(String VATNumber) {
-        this.VATNumber = VATNumber;
+        if (!VATNumber.isEmpty())
+            this.VATNumber = VATNumber;
     }
 
     public String getStreet() {
@@ -268,5 +244,21 @@ public class User implements UserDetails {
 
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
+    }
+
+    public String getConfirmationPassword() {
+        return confirmationPassword;
+    }
+
+    public void setConfirmationPassword(String confirmationPassword) {
+        this.confirmationPassword = confirmationPassword;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

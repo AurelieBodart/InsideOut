@@ -1,6 +1,5 @@
 package be.henallux.ig3.javaB3.InsideOut.dataAccess.dao;
 
-import be.henallux.ig3.javaB3.InsideOut.dataAccess.entity.TranslationCategoryEntity;
 import be.henallux.ig3.javaB3.InsideOut.dataAccess.repository.CategoryRepository;
 import be.henallux.ig3.javaB3.InsideOut.dataAccess.util.ProviderConverter;
 import be.henallux.ig3.javaB3.InsideOut.model.TranslationCategory;
@@ -9,7 +8,7 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CategoryDAO implements CategoryDataAccess{
@@ -23,12 +22,10 @@ public class CategoryDAO implements CategoryDataAccess{
     }
 
     public ArrayList<TranslationCategory> getAllCategories(){
-        List<TranslationCategoryEntity> categoryEntities = categoryRepository.findCategoryEntitiesByLanguageRegionCode(LocaleContextHolder.getLocale().getLanguage());
-
-        ArrayList<TranslationCategory> categories = new ArrayList<>();
-        for(TranslationCategoryEntity translationCategoryEntity : categoryEntities)
-            categories.add(providerConverter.categoryEntityToCategoryModel(translationCategoryEntity));
-
-        return categories;
+        return categoryRepository
+                .findCategoryEntitiesByLanguageRegionCode(LocaleContextHolder.getLocale().getLanguage())
+                .stream()
+                .map(translationCategoryEntity -> providerConverter.categoryEntityToCategoryModel(translationCategoryEntity))
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 }
