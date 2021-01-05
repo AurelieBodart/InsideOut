@@ -67,12 +67,12 @@
 		<!-- ============================ COMPONENT 2 END//  ================================= -->
 
 		<script>
-			// window.onload = () => {
-			// 	let intervalId = setInterval(() => {
-			// 		clearInterval(intervalId);
-		    //         document.getElementById("button").click();
-			// 	}, 5000);
-			// }
+			window.onload = () => {
+				let intervalId = setInterval(() => {
+					clearInterval(intervalId);
+		            document.getElementById("button").click();
+				}, 5000);
+			}
 		</script>
 
 	</div> <!-- container .//  -->

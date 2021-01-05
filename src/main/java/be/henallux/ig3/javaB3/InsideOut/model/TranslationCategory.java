@@ -5,6 +5,12 @@ public class TranslationCategory {
     private String languageRegionCode;
     private String label;
 
+    public TranslationCategory(Integer id, String languageRegionCode, String label) {
+        this.id = id;
+        this.languageRegionCode = languageRegionCode;
+        this.label = label;
+    }
+
     public TranslationCategory() {
     }
 
@@ -30,6 +36,16 @@ public class TranslationCategory {
 
     public void setLabel(String label) {
         this.label = label;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return o instanceof TranslationCategory && ((TranslationCategory) o).getId().equals(id) && ((TranslationCategory) o).getLabel().equals(label) && ((TranslationCategory) o).getLanguageRegionCode().equals(languageRegionCode);
+    }
+
+    @Override
+    public int hashCode() {
+        return 0;
     }
 
     @Override

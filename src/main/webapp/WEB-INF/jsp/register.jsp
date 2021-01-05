@@ -91,7 +91,7 @@
                         <form:label path="phoneNumber">
                             <spring:message code="phoneNumber"/>
                         </form:label>
-                        <form:input path="phoneNumber" cssClass="form-control" />
+                        <form:input type="phone" path="phoneNumber" cssClass="form-control" />
                         <form:errors path="phoneNumber"/>
                     </div> <!-- form-group end.// -->
 

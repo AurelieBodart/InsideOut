@@ -52,7 +52,7 @@
                                         <spring:message code="quantity"/>
                                     </form:label>
                                     <div class="mb-3 input-spinner">
-                                        <form:input cssStyle="max-width: 70px; width: 70px" type="number" cssClass="form-control" value="1" path="quantity" />
+                                        <form:input cssStyle="max-width: 70px; width: 70px" type="number" cssClass="form-control" min="1" value="1" path="quantity" />
                                     </div>
                                 </div> <!-- col.// -->
 

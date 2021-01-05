@@ -15,6 +15,19 @@ public class Product {
     private Band band;
     private Category category;
 
+    public Product(Integer id, String name, @Positive Double price, String targetedGender, String size, String color, String description, String image, Band band, Category category) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.targetedGender = targetedGender;
+        this.size = size;
+        this.color = color;
+        this.description = description;
+        this.image = image;
+        this.band = band;
+        this.category = category;
+    }
+
     public Product() {
     }
 
@@ -96,6 +109,20 @@ public class Product {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return o instanceof Product && ((Product) o).getId().equals(getId()) &&
+                ((Product) o).getName().equals(getName()) &&
+                ((Product) o).getPrice().equals(getPrice()) &&
+                ((Product) o).getTargetedGender().equals(getTargetedGender()) &&
+                ((Product) o).getSize().equals(getSize()) &&
+                ((Product) o).getColor().equals(getColor()) &&
+                ((Product) o).getDescription().equals(getDescription()) &&
+                ((Product) o).getImage().equals(getImage()) &&
+                ((Product) o).getBand().equals(getBand()) &&
+                ((Product) o).getCategory().equals(getCategory());
     }
 
     @Override

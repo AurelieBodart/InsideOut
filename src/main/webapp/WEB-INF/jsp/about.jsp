@@ -47,7 +47,7 @@
 	<header class="section-header">
 		<section class="header-main border-bottom">
 			<div class="container">
-				<a href="http://bootstrap-ecommerce.com" class="brand-wrap"><img class="logo" src="images/logo.png"></a>
+				<a href="<spring:url value="/" />" class="brand-wrap"><img class="logo" src="images/logo.png"></a>
 			</div> <!-- container.// -->
 		</section>
 	</header> <!-- section-header.// -->

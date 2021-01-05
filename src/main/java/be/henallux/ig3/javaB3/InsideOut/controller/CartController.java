@@ -11,9 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping(value = "/cart")
@@ -40,6 +38,9 @@ public class CartController extends SuperController {
         model.addAttribute("title", "Cart page");
         model.addAttribute("orderLine", new OrderLine());
 
+        if (!model.containsAttribute("cart"))
+            model.addAttribute("cart",new HashMap<Integer, OrderLine>());
+
         return "integrated:cart";
     }
 
@@ -61,7 +62,7 @@ public class CartController extends SuperController {
 
             return "redirect:/cart";
         }
-        return "integrated:/details/" + id;
+        return "redirect:/details/" + id;
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/update/{id}")

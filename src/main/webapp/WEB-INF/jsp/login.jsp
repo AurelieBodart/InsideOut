@@ -25,12 +25,17 @@
 						<form:input cssClass="form-control" path="password" type="password"/>
 					</div>
 
+					<c:if test="${error != null}">
+						<div class="form-group">
+							<p style="color: red"><spring:message code="credentialsError" /></p>
+						</div>
+					</c:if>
+
 					<div class="form-group">
 						<form:button type="submit" class="btn btn-primary btn-block"> <spring:message code="login"/> </form:button>
 					</div>
 
 				</form:form>
-
 			</div> <!-- card-body.// -->
 		</div> <!-- card .// -->
 

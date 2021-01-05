@@ -6,9 +6,7 @@ import be.henallux.ig3.javaB3.InsideOut.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 
@@ -23,13 +21,18 @@ public class LoginController extends SuperController {
     }
 
     @RequestMapping (method = RequestMethod.GET)
-    public String login (Model model) {
-
+    public String login (Model model, @RequestParam (required = false, value = "error") String error) {
         model.addAttribute("categories", super.getAllCategories());
         model.addAttribute("title", "Login page");
         model.addAttribute("user", new User());
-        if (!model.containsAttribute("cart"))
-            model.addAttribute("cart",new HashMap<Integer, OrderLine>());
+
+        if (!model.containsAttribute("cart")) {
+            model.addAttribute("cart", new HashMap<Integer, OrderLine>());
+        }
+
+        if (error != null) {
+            model.addAttribute("error", "error");
+        }
 
         return "integrated:login";
     }
