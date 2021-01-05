@@ -1,9 +1,9 @@
 server:
-  port: 8081
+  port: 8082
   servlet:
-    contextPath: /test
+    contextPath: /
 
 spring:
   datasource:
-    password: M254m 98s@LU
+    password: Mysql30201
     url: jdbc:mysql://localhost:3306/inside_out_metal?user=root&serverTimezone=UTC

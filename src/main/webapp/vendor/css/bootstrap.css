@@ -68,7 +68,7 @@ body {
   line-height: 1.5;
   color: #343a40;
   text-align: left;
-  background-color: #fff;
+  background-color: #b5d9d9;
 }
 
 [tabindex="-1"]:focus {
@@ -168,6 +168,26 @@ a {
 a:hover {
   color: #1244bd;
   text-decoration: underline;
+}
+
+.onMousseHover {
+  position: relative;
+  display: inline-block;
+  font-size: 2em;
+  font-weight: 800;
+  color: royalblue;
+  overflow: hidden;
+  background: linear-gradient(to right, midnightblue, midnightblue 50%, royalblue 50%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 275ms ease;
+}
+
+.onMousseHover:hover {
+  background-position: 0 100%;
 }
 
 a:not([href]):not([tabindex]) {

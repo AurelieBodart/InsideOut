@@ -1,6 +1,16 @@
 be\henallux\ig3\javaB3\InsideOut\InsideOutApplication.class
+be\henallux\ig3\javaB3\InsideOut\controller\RegisterController.class
+be\henallux\ig3\javaB3\InsideOut\dataAccess\dao\UserDAO.class
+be\henallux\ig3\javaB3\InsideOut\dataAccess\util\ProviderConverter.class
+be\henallux\ig3\javaB3\InsideOut\model\User.class
+be\henallux\ig3\javaB3\InsideOut\configuration\WebSecurityConfiguration.class
+be\henallux\ig3\javaB3\InsideOut\dataAccess\dao\UserDataAccess.class
+be\henallux\ig3\javaB3\InsideOut\dataAccess\entity\UserEntity.class
 be\henallux\ig3\javaB3\InsideOut\configuration\TilesConfiguration.class
+be\henallux\ig3\javaB3\InsideOut\dataAccess\repository\UserRepository.class
 be\henallux\ig3\javaB3\InsideOut\ServletInitializer.class
 be\henallux\ig3\javaB3\InsideOut\configuration\MainConfiguration.class
+be\henallux\ig3\javaB3\InsideOut\service\UserDetailsServiceImplementation.class
 be\henallux\ig3\javaB3\InsideOut\controller\Constants.class
 be\henallux\ig3\javaB3\InsideOut\controller\HomeController.class
+be\henallux\ig3\javaB3\InsideOut\controller\LoginController.class

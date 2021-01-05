@@ -24,7 +24,7 @@ public class MainConfiguration implements WebMvcConfigurer {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
 
         messageSource.setDefaultEncoding("UTF-8");
-        messageSource.setBasenames("translations/general");
+        messageSource.setBasenames("translations/general", "translations/errors");
         messageSource.setUseCodeAsDefaultMessage(true);
 
         return messageSource;
@@ -42,7 +42,7 @@ public class MainConfiguration implements WebMvcConfigurer {
     public LocaleResolver localeResolver() {
         CookieLocaleResolver resolver = new CookieLocaleResolver();
 
-        resolver.setDefaultLocale(new Locale("fr"));
+        resolver.setDefaultLocale(new Locale("en"));
         resolver.setCookieName("localeCookie");
         resolver.setCookieMaxAge(-1);
         return resolver;
