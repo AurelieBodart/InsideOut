@@ -1,0 +1,9 @@
+server:
+  port: 8082
+  servlet:
+    contextPath: /
+
+spring:
+  datasource:
+    password:
+    url: jdbc:mysql://localhost:3306/inside_out_metal?user=root&serverTimezone=UTC
