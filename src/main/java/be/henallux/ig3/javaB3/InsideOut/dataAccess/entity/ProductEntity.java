@@ -37,6 +37,19 @@ public class ProductEntity {
     @ManyToOne
     private CategoryEntity categoryEntity;
 
+    public ProductEntity(Integer id, String name, Double price, String targetedGender, String size, String color, String description, String image, BandEntity bandEntity, CategoryEntity categoryEntity) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.targetedGender = targetedGender;
+        this.size = size;
+        this.color = color;
+        this.description = description;
+        this.image = image;
+        this.bandEntity = bandEntity;
+        this.categoryEntity = categoryEntity;
+    }
+
     public ProductEntity() {
     }
 

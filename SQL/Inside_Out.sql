@@ -52,7 +52,8 @@ create table inside_out_metal.product (
     band_id integer not null,
     category_id integer not null,
     constraint product_band_id_fk foreign key (band_id) references band(id),
-    constraint product_category_id_fk foreign key (category_id) references category(id)
+    constraint product_category_id_fk foreign key (category_id) references category(id),
+    constraint product_price_ck check ( price > 0 )
 ) engine = InnoDB;
 
 create table inside_out_metal.customer (
@@ -95,7 +96,9 @@ create table inside_out_metal.order_line (
     price_shown double not null,
     quantity integer not null,
     constraint order_line_order_id_fk foreign key (order_id) references `order`(id),
-    constraint order_line_product_id_fk foreign key (product_id) references product(id)
+    constraint order_line_product_id_fk foreign key (product_id) references product(id),
+    constraint order_line_quantity_ck check ( quantity > 0 ),
+    constraint order_line_price_shown_ck check ( price_shown > 0 )
 ) engine = InnoDB;
 
 insert into inside_out_metal.band(name, history) values ('Avenged Sevenfold', 'Avenged Sevenfold (A7X) est un groupe de heavy metal américain, originaire de Huntington Beach, en Californie. Ayant longtemps été un pilier de la scène underground californienne, le groupe connaît un franc succès avec l''album City of Evil et l''album homonyme Avenged Sevenfold. Fondé par M. Shadows, Zacky Vengeance, The Rev et Matt Wendt à la fin des années 1990, la composition actuelle du groupe est : M. Shadows au chant, Synyster Gates à la guitare solo, Zacky Vengeance à la guitare rythmique, Johnny Christ à la basse et Brooks Wackerman à la batterie. Le groupe émerge dans un son metalcore, puis évolue vers un son plus hard rock et heavy metal. En date, Avenged Sevenfold recense neuf albums studio, un album live, une compilation, un DVD, et dix-neuf singles, et plus de huit millions d''albums vendus à travers le monde.');

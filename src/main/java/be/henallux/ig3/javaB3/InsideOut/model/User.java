@@ -5,10 +5,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
+import javax.validation.constraints.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -33,6 +30,8 @@ public class User implements UserDetails {
     private String email;
 
     @NotEmpty
+    @Pattern(regexp = "((\\+|00)32)?[0-9]+")
+    @Size(min = 9, max = 13)
     private String phoneNumber;
 
     @NotEmpty

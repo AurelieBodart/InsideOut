@@ -8,7 +8,7 @@ import javax.persistence.Id;
 public class BandEntity {
     @Id
     @Column(name = "id")
-    private int id;
+    private Integer id;
 
     @Column(name = "name")
     private String name;
@@ -16,14 +16,20 @@ public class BandEntity {
     @Column(name = "history")
     private String history;
 
+    public BandEntity(Integer id, String name, String history) {
+        this.id = id;
+        this.name = name;
+        this.history = history;
+    }
+
     public BandEntity() {
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

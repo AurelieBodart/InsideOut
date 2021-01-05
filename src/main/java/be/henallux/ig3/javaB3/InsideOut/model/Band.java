@@ -5,6 +5,12 @@ public class Band {
     private String name;
     private String history;
 
+    public Band(Integer id, String name, String history) {
+        this.id = id;
+        this.name = name;
+        this.history = history;
+    }
+
     public Band() {
     }
 
@@ -30,6 +36,13 @@ public class Band {
 
     public void setHistory(String history) {
         this.history = history;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return o instanceof Band && ((Band) o).getId().equals(getId()) &&
+                ((Band) o).getName().equals(getName()) &&
+                ((Band) o).getHistory().equals(getHistory());
     }
 
     @Override

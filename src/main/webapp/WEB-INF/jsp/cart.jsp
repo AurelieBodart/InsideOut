@@ -73,7 +73,7 @@
 					</table>
 
 					<div class="card-body border-top">
-						<a href="<spring:url value='/order' />" class="btn btn-primary float-md-right"> <spring:message code='buttonMakePurchase' /> <i class="fa fa-chevron-right"></i> </a>
+						<button id="orderButton" class="btn btn-primary float-md-right"> <spring:message code='buttonMakePurchase' /> <i class="fa fa-chevron-right"></i> </button>
 						<a href="<spring:url value='/products/3' />" class="btn btn-light"> <i class="fa fa-chevron-left"></i> <spring:message code='buttonContinueShopping' /> </a>
 					</div>
 				</div> <!-- card.// -->
@@ -112,3 +112,14 @@
 </section>
 <!-- ========================= SECTION CONTENT END// ========================= -->
 
+<script>
+	window.onload = () => {
+        let button = document.getElementById("orderButton");
+
+        button.onclick = () => {
+            if (window.confirm(`<spring:message code="confirmOrder" />`)) {
+                document.location = "<spring:url value='/order' />";
+            }
+        }
+    }
+</script>

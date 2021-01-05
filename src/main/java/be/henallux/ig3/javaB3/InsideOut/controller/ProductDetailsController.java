@@ -6,14 +6,17 @@ import be.henallux.ig3.javaB3.InsideOut.model.OrderLine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import java.util.HashMap;
 
 
 @Controller
 @RequestMapping(value = "/details")
-@SessionAttributes({"cart"})
+@SessionAttributes(Constants.CURRENT_CART)
 public class ProductDetailsController extends SuperController{
 
     private ProductDataAccess productDataAccess;
@@ -25,14 +28,14 @@ public class ProductDetailsController extends SuperController{
     }
 
     @RequestMapping (value = "/{productId}", method = RequestMethod.GET)
-    public String getProduct (@PathVariable("productId") Integer productId, Model model, @ModelAttribute(value = Constants.CURRENT_CART) HashMap<Integer, OrderLine> cart) {
+    public String getProduct (@PathVariable("productId") Integer productId, Model model) {
 
         model.addAttribute("categories", super.getAllCategories());
         model.addAttribute("product", productDataAccess.getProductById(productId));
         model.addAttribute("title", "Product details page");
         model.addAttribute("orderLine", new OrderLine());
         if (!model.containsAttribute("cart"))
-            model.addAttribute("cart",new HashMap<Integer, OrderLine>());
+            model.addAttribute("cart", new HashMap<Integer, OrderLine>());
 
         return "integrated:productDetails";
     }

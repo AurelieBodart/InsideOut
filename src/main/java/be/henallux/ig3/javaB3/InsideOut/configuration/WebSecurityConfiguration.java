@@ -6,17 +6,24 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private static final String LOGIN_REQUEST = "/login";
+    private static final String LOGIN_FAILURE_REQUEST = LOGIN_REQUEST + "/error";
     private static final String[] AUTHORIZED_REQUESTS_ANYBODY = new String[]{"/", "/register", "/register/send", "/products/**", "/details/**", "/vendor/**", "/images/**", "/cart/**", "/about"};
-    private static final String[] AUTHORIZED_REQUESTS_ADMIN = new String[]{""}; // décommenter en bas
 
     private UserDetailsService userDetailsServiceImpl;
 
@@ -35,7 +42,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         http
                 .authorizeRequests() // We define the authorization here
-                //.antMatchers(AUTHORIZED_REQUESTS_ADMIN).hasRole("ADMIN") // For the request to "/admin", the user needs to be an admin
                 .antMatchers(AUTHORIZED_REQUESTS_ANYBODY).permitAll() // For the request to the index page, any user has access
                 .anyRequest().authenticated() // For all the other requests, the user needs to be authenticated
 
@@ -45,9 +51,9 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .loginPage(LOGIN_REQUEST) // We specify a login page. Otherwise spring creates one by default
                 .permitAll() // To make the login page the available for any user
 
+
                 .and()
                 .logout() // We define the logout part here - By default : URL = "/logout"
-                //.logoutUrl("...") // If other link than "/logout" (that is by default)
                 .logoutSuccessUrl("/")  // URL to return if logout is successful
                 .permitAll(); // To make the logout available for any user
     }

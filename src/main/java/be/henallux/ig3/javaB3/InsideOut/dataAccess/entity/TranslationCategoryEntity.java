@@ -18,6 +18,12 @@ public class TranslationCategoryEntity {
     @Column(name = "label")
     private String label;
 
+    public TranslationCategoryEntity(Integer id, String languageRegionCode, String label) {
+        this.id = id;
+        this.languageRegionCode = languageRegionCode;
+        this.label = label;
+    }
+
     public TranslationCategoryEntity() {
     }
 
