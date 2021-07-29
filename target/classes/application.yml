@@ -5,5 +5,5 @@ server:
 
 spring:
   datasource:
-    password: TO ADD
+    password: //TO ADD
     url: jdbc:mysql://localhost:3306/inside_out_metal?user=root&serverTimezone=UTC
